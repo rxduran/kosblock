@@ -26,6 +26,9 @@
       "js": [
         "bower_components/jquery/dist/jquery.min.js",
         "bower_components/angular/angular.min.js",
+        "scripts/kosblock.js",
+        "scripts/controllers/comments.js",
+        "scripts/directives/kosblocker.js",
         "scripts/contentscript.js"
       ],
       "run_at": "document_end",
@@ -35,7 +38,13 @@
   "content_security_policy" : "script-src 'self'; object-src 'self'",
   "web_accessible_resources" : [
     "bower_components/angular/*",
-    "bower_components/jquery/*"
+    "bower_components/jquery/*",
+    "scripts/kosblock.js",
+    "scripts/controllers/*",
+    "scripts/directives/*",
+    "scripts/services/*",
+    "scripts/providers/*",
+    "views/*"
   ]
 
 }
