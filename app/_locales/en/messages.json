@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "kosblock",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "KosBlock: A Killfile for DailyKos",
+    "description": "The description of the application"
+  }
+}
