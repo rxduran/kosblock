@@ -13,7 +13,9 @@ window.addEventListener("load", function() {
 
   
   // Append the kosblocker directive underneath all comment footers (div.cf)
-  $('p.cl').append('[ <a kosblocker></a> ]');
+  $('p.cl').append('[ <kosblocker></kosblocker> ]').closest('.cf').find('p.cb a:first').each( function (i){
+    $(this).closest('.cf').find('kosblocker').attr('kossack', '"' + $(this).html() + '"');
+  });
 
   // Bootstrap the page to attach angular and our customizations
   var html = document.getElementsByName('html');
