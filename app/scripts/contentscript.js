@@ -1,24 +1,36 @@
 'use strict';
 
 window.addEventListener("load", function() {
-  var app = angular.module("kosblock", []);
+  var kosblock = angular.module("kosblock", []);
 
-  var html = document.querySelector('html');
-  html.setAttribute('ng-app', '');
-  html.setAttribute('ng-csp', '');
+  // Decorate the HTML tag with ng-app (Angular root directive) 
+  // and ng-csp (Content Security Policy directive)
+  $('html').attr('ng-app', '').attr('ng-csp', '');
 
-  var comments = document.getElementById('comments');
-  comments.setAttribute('ng-controller', 'CommentsController');
 
-  app.controller('CommentsController', function ($scope) {
+  // Fix the controller to the comments div
+  $('#comments').attr('ng-controller', 'CommentsController');
+
+  // Define the controller
+  kosblock.controller('CommentsController', function ($scope) {
 
   });
 
+  // Append the kosblocker directive underneath all comment footers (div.cf)
+  $('p.cl').append('[ <a kosblocker></a> ]');
 
-  $('div.cf').append('<p class="kosblock" kosblock></p>');
+  // Attach the directive to the kosblocker element
+  kosblock.directive('kosblocker', function() {
+    return {
+      restrict: 'A'
+      , replace: true
+      , template: '<a>Bozo</a>'
+    };
+  });
 
-  
 
-  angular.bootstrap(html, ['kosblock'], []);
+  // Bootstrap the page to attach angular and our customizations
+  var html = document.getElementsByName('html');
+  angular.bootstrap($('html'), ['kosblock'], []);
 
 });
