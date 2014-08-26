@@ -13,8 +13,12 @@ window.addEventListener("load", function() {
 
   
   // Append the kosblocker directive underneath all comment footers (div.cf)
-  $('p.cl').append('[ <kosblocker></kosblocker> ]').closest('.cf').find('p.cb a:first').each( function (i){
-    $(this).closest('.cf').find('kosblocker').attr('kossack', '"' + $(this).html() + '"');
+  $('div.cf').each( function(i) {
+    var kossack = $(this).find('p.cb a:first').html();
+    $(this).find('p.cl').append('[ <kosblocker></kosblocker> ]').each( function(i) { 
+      $(this).find('kosblocker').attr('kossack', '"' + kossack + '"');
+    });
+
   });
 
   // Bootstrap the page to attach angular and our customizations
